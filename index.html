@@ -1,0 +1,3 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Loading…</title></head><body><script>
+(async()=>{const p=[1,2,3,4];const b64=(await Promise.all(p.map(i=>fetch(`portfolio.part${i}`).then(r=>r.text())))).join("");const bin=Uint8Array.from(atob(b64),c=>c.charCodeAt(0));const ds=new DecompressionStream("gzip");const text=await new Response(new Blob([bin]).stream().pipeThrough(ds)).text();document.open();document.write(text);document.close();})();
+</script></body></html>
